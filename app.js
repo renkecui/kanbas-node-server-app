@@ -39,3 +39,7 @@ Lab5(app);
 Hello(app);
 app.listen(process.env.PORT || 4000);
 app.use(express.json());
+
+
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas
+mongoose.connect(CONNECTION_STRING);
