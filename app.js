@@ -7,7 +7,6 @@ import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
 import "dotenv/config";
 import mongoose from "mongoose";
-mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 import UserRoutes from "./users/routes.js";
 import "dotenv/config";
 
@@ -31,6 +30,8 @@ if (process.env.NODE_ENV !== "development") {
   };
 }
 app.use(session(sessionOptions));
+
+app.use(cors)
 app.use(express.json());
 UserRoutes(app);
 ModuleRoutes(app);
@@ -41,5 +42,6 @@ app.listen(process.env.PORT || 4000);
 app.use(express.json());
 
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/project'
+console.log(CONNECTION_STRING);
 mongoose.connect(CONNECTION_STRING);
