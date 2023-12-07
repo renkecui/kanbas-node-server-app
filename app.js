@@ -8,7 +8,6 @@ import ModuleRoutes from "./modules/routes.js";
 import "dotenv/config";
 import mongoose from "mongoose";
 import UserRoutes from "./users/routes.js";
-import "dotenv/config";
 
 const app = express();
 app.use(
@@ -31,7 +30,7 @@ if (process.env.NODE_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 
-app.use(cors)
+// app.use(cors)
 app.use(express.json());
 UserRoutes(app);
 ModuleRoutes(app);
